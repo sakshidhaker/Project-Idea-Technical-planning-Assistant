@@ -32,3 +32,9 @@ MAX_TOKENS = 700
 # multilingual: understands Hindi + English (Hinglish works through query expansion in rag.py)
 EMBED_MODEL = os.getenv("EMBED_MODEL", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 RAG_BACKEND = os.getenv("RAG_BACKEND", "auto").lower()
+
+
+# --- deployment switches (Render / cloud) ---
+# ENABLE_LLM=0 -> "lite mode": no local model, answers come from the knowledge base only
+ENABLE_LLM = os.getenv("ENABLE_LLM", "1").strip().lower() not in ("0", "false", "no")
+SESSION_COOKIE_SECURE = os.getenv("SESSION_COOKIE_SECURE", "0").strip() == "1"

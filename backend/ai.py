@@ -7,7 +7,7 @@ import threading
 
 from backend.lang import language_directive
 
-from backend.config import MAX_TOKENS, MODEL_FILE, MODEL_LABEL, MODEL_REPO, MODELS_DIR, N_CTX
+from backend.config import ENABLE_LLM, MAX_TOKENS, MODEL_FILE, MODEL_LABEL, MODEL_REPO, MODELS_DIR, N_CTX
 
 STATE = {"status": "idle", "message": "Model not loaded yet"}
 _llm = None
@@ -51,6 +51,9 @@ def ensure_model_downloaded():
 def load_model():
     """Load Qwen once. Returns the Llama object or None when unavailable."""
     global _llm
+    if not ENABLE_LLM:
+        STATE.update(status="error", message="Cloud lite mode: answers come from the knowledge base")
+        return None
     if _llm is not None:
         return _llm
     with _load_lock:
@@ -70,6 +73,9 @@ def load_model():
 
 
 def warm_up():
+    if not ENABLE_LLM:
+        load_model()                      # just sets the lite-mode status
+        return
     threading.Thread(target=load_model, daemon=True).start()
 
 
@@ -123,6 +129,11 @@ def fallback_answer(results):
     loading = STATE["status"] in ("downloading", "loading")
     note = ("The local model is still loading, so here is the closest note from the knowledge base"
             if loading else "The local model is not running, so here is the closest note from the knowledge base")
+    if not ENABLE_LLM:
+        note = "Cloud demo mode (no AI model here), so here is the closest note from the knowledge base"
+        if not results:
+            return ("Cloud demo mode: I found nothing in the knowledge base for this. "
+                    "Run the app on your laptop with the local Qwen model for full answers.")
     if not results:
         return (f"{note.split(',')[0]}. I found nothing in the knowledge base for this yet. "
                 "Wait for the green dot in the sidebar and ask again.")

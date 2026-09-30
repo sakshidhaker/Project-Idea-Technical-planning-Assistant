@@ -1,8 +1,22 @@
+# environments and secrets
 myenv/
 .venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# python
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# big / generated / private
+*.gguf
+models/*
+!models/.gitkeep
 data/*.db
+data/*.db-journal
 generated/*
-models/*.gguf
-.env
+!generated/.gitkeep
+.vscode/

@@ -3,17 +3,20 @@ from flask import Flask, redirect, render_template, request, session, url_for
 
 from backend import admin, ai, auth, database
 from backend.api import auth_api, chat_api, document_api, downloads_api
-from backend.config import MODEL_LABEL, SECRET_KEY
+from backend.config import ENABLE_LLM, SESSION_COOKIE_SECURE, MODEL_LABEL, SECRET_KEY
 
 app = Flask(__name__, template_folder="../frontend/templates", static_folder="../frontend/static")
 app.secret_key = SECRET_KEY
-app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax")
+app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax",
+                  SESSION_COOKIE_SECURE=SESSION_COOKIE_SECURE)
 
 for module in (auth_api, chat_api, document_api, downloads_api):
     app.register_blueprint(module.bp)
 
 database.init_db()
 auth.ensure_admin_account()
+if not ENABLE_LLM:
+    ai.warm_up()          # sets the 'lite mode' status when running under gunicorn
 
 
 @app.route("/")

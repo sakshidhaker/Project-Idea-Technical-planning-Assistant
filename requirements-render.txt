@@ -1,0 +1,7 @@
+Flask>=3.0
+python-dotenv
+numpy
+scikit-learn
+reportlab
+python-docx
+gunicorn
