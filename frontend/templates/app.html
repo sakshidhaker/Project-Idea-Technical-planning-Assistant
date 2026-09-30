@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Chat · Technical Planning Assistant{% endblock %}
+{% block body %}
+<div id="intro">
+  <div>
+    <div class="orb big" style="margin:0 auto"></div>
+    <h1>Hello, <span class="grad-text">{{ user['name'].split()[0] }}</span></h1>
+    <div style="opacity:.7">Waking up your local AI lab…</div>
+    <div class="steps"><span>Prompt</span><span>Semantic RAG</span><span>Local Qwen</span><span>Validation</span><span>Answer</span></div>
+    <div class="bar"><i></i></div>
+  </div>
+</div>
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="{{ url_for('landing') }}" title="Home" style="color:inherit"><div class="orb"></div>Technical Planning Assistant</a>
+    <button class="btn primary" onclick="newChat()">＋ New chat</button>
+    <input type="search" id="q" placeholder="Search your history…" oninput="searchHistory()">
+    <div class="hist" id="hist"></div>
+    <div class="model"><b><span class="dot" id="dot"></span>{{ model }}</b><div class="muted" id="mstat">Checking…</div></div>
+    <div class="userbox">
+      <div class="avatar">{{ user['name'][0]|upper }}</div>
+      <div class="who"><div><b>{{ user['name'] }}</b></div><div class="muted">{{ user['email'] }}</div></div>
+      <form method="post" action="{{ url_for('auth.logout') }}"><button class="btn small" title="Log out">⏻</button></form>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <button class="tab on" data-v="chat">Chat</button>
+      <button class="tab" data-v="create">Create Artifact</button>
+      <span class="sp"></span>
+      <a class="btn small" href="{{ url_for('landing') }}" title="Go to home page">🏠 Home</a>
+      {% if is_admin %}<a class="btn small" href="{{ url_for('admin_page') }}">Admin</a>{% endif %}
+      <button class="btn small" onclick="toggleTheme()">◐ Theme</button>
+    </div>
+    <section class="view on" id="v-chat">
+      <div class="msgs" id="msgs"><div class="wrap" id="thread"></div></div>
+      <div class="composer">
+        <div class="wrap">
+          <button class="mic" id="mic" title="Speak your question" onclick="toggleMic()">🎤</button>
+          <textarea id="inp" rows="1" placeholder="Ask in English, Hindi or Hinglish… or tap the mic and speak"></textarea>
+          <button class="btn primary" id="send" onclick="onSend()">Send ➤</button>
+        </div>
+        <div class="hint" id="voicebar">
+          <span id="vstat">Enter to send · Shift+Enter for a new line</span>
+          <span id="vopts"> · 🎙 <select id="vlang" title="Speaking language"><option value="en-IN">English</option><option value="hi-IN">हिन्दी (Hindi)</option><option value="en-IN|hinglish">Hinglish</option></select>
+          <label style="display:inline;margin:0 0 0 8px"><input type="checkbox" id="vauto"> auto-send</label></span>
+        </div>
+      </div>
+    </section>
+    <section class="view" id="v-create">
+      <div class="create"><div class="wrap">
+        <h2 style="margin:0">Create <span class="grad-text">Artifact</span></h2>
+        <p class="muted">Describe a document. The AI uses the knowledge base, validates the result and builds a real file.</p>
+        <label>What should it contain?</label>
+        <textarea id="gp" rows="4" placeholder="e.g. Project proposal for a Heart Disease Prediction system with modules, tech stack and 8 week plan"></textarea>
+        <div class="row" style="margin-top:12px">
+          <div><label>Format</label><select id="gf"><option value="pdf">PDF</option><option value="docx">Word (DOCX)</option></select></div>
+          <div style="display:flex;align-items:flex-end"><button class="btn primary" style="width:100%" id="gbtn" onclick="createArtifact()">Generate file</button></div>
+        </div>
+        <div class="result" id="gres"></div>
+      </div></div>
+    </section>
+  </main>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='app.js') }}"></script>{% endblock %}

@@ -1,0 +1,9 @@
+# About Technical Planning Assistant (This Application)
+
+Technical Planning Assistant is a local-first AI assistant for students. It runs the Qwen 2.5 Instruct 0.5B model on your own computer, so no cloud API is needed.
+
+How it works: your question goes to Flask, the RAG module searches the knowledge folder, the best passages are added to the prompt, Qwen writes the answer, and the chat is saved in SQLite.
+
+Features: signup and login, chat history per user, history search, Create Artifact (PDF or DOCX documents), dark and light theme, source chips that show which knowledge notes were used, and an admin dashboard that shows users and messages from the database.
+
+How to improve answers: add a new .txt file to the knowledge folder with a clear title and short sections. The index rebuilds automatically.

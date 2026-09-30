@@ -1,0 +1,13 @@
+# Machine Learning Project Workflow
+
+1) Problem definition: classification, regression or clustering? What is the target column and the success metric?
+2) Data collection: Kaggle, UCI repository, government open data, or your own collected data.
+3) EDA: check shape, missing values, duplicates, class balance, correlations; plot histograms and heatmaps.
+4) Preprocessing: fill or drop missing values, encode categories, scale numeric features, split into train and test (for example 80/20) before fitting scalers to avoid leakage.
+5) Model training: start with a baseline (logistic regression, decision tree), then try random forest, gradient boosting, SVM, KNN.
+6) Evaluation: accuracy, precision, recall, F1, ROC-AUC for classification; MAE, RMSE, R2 for regression. Use cross-validation and a confusion matrix. For medical or fraud problems recall matters more than accuracy.
+7) Tuning: GridSearchCV or RandomizedSearchCV.
+8) Save the model with joblib or pickle and load it in a Flask app for predictions.
+9) Report: dataset description, methods, results table, limitations, future work.
+
+Heart disease prediction example: features such as age, sex, chest pain type, blood pressure, cholesterol, max heart rate; target is presence of disease; compare several models and report recall and ROC-AUC.

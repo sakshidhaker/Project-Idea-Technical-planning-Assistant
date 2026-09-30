@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Admin · Technical Planning Assistant{% endblock %}
+{% block body %}
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="admin">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <div class="brand"><div class="orb"></div>Admin · SQLite data</div>
+    <div style="display:flex;gap:8px"><a class="btn small" href="{{ url_for('app_page') }}">← Back to chat</a><button class="btn small" onclick="toggleTheme()">◐ Theme</button></div>
+  </div>
+  <div class="stats">
+    <div class="card"><div class="muted">Users</div><b>{{ stats.users }}</b></div>
+    <div class="card"><div class="muted">Chats</div><b>{{ stats.chats }}</b></div>
+    <div class="card"><div class="muted">Messages</div><b>{{ stats.messages }}</b></div>
+    <div class="card"><div class="muted">Feedback 👍 / 👎</div><b>{{ stats.likes }} / {{ stats.dislikes }}</b></div>
+  </div>
+  <h3>Users</h3>
+  <form method="get" style="display:flex;gap:8px;margin-bottom:10px"><input type="search" name="q" value="{{ q }}" placeholder="Search name or email"><button class="btn">Search</button></form>
+  <div class="card tbl"><table>
+    <tr><th>ID</th><th>Name</th><th>Email</th><th>Chats</th><th>Joined</th><th></th></tr>
+    {% for u in users %}<tr><td>{{ u.id }}</td><td>{{ u.name }}</td><td>{{ u.email }}</td><td>{{ u.chat_count }}</td><td>{{ u.created_at }}</td>
+      <td>{% if u.id != user.id %}<form method="post" onsubmit="return confirm('Delete this user and all their chats?')"><input type="hidden" name="user_id" value="{{ u.id }}"><button class="btn small">Delete</button></form>{% endif %}</td></tr>
+    {% else %}<tr><td colspan="6" class="muted">No users found.</td></tr>{% endfor %}
+  </table></div>
+  <h3>Latest messages</h3>
+  <div class="card tbl"><table>
+    <tr><th>User</th><th>Chat</th><th>Role</th><th>Message</th><th>Time</th></tr>
+    {% for m in recent %}<tr><td>{{ m.name }}</td><td>{{ m.title }}</td><td>{{ m.role }}</td><td>{{ m.content[:140] }}{% if m.content|length > 140 %}…{% endif %}</td><td>{{ m.created_at }}</td></tr>
+    {% else %}<tr><td colspan="5" class="muted">No messages yet.</td></tr>{% endfor %}
+  </table></div>
+</div>
+{% endblock %}

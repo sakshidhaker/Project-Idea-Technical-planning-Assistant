@@ -1,0 +1,10 @@
+Flask>=3.0
+python-dotenv
+numpy
+scikit-learn
+sentence-transformers
+huggingface-hub
+llama-cpp-python
+reportlab
+python-docx
+pytest

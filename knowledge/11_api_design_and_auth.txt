@@ -1,0 +1,11 @@
+# API Design and Authentication
+
+REST basics: use nouns for URLs (/api/chats), HTTP methods for actions (GET read, POST create, DELETE remove), and status codes (200 OK, 400 bad request, 401 unauthorised, 404 not found, 500 server error).
+
+Authentication flow: signup stores name, email and a password hash; login checks the hash and creates a session; every protected route checks the session; logout clears it.
+
+Security checklist: hash passwords, use parameterised SQL, keep secrets in a .env file, do not commit .env to Git, validate all input, escape user text before showing it in HTML, and check that a user can only open their own chats.
+
+Sessions vs JWT: sessions with cookies are simplest for server-rendered Flask apps. JWT tokens suit separate frontends and mobile apps.
+
+Rate limiting and CORS matter when the API is public; for a college demo on localhost they are optional but good to mention as future work.

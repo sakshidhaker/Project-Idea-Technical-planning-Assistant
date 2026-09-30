@@ -1,0 +1,19 @@
+# Python Code Patterns for Projects
+
+Read a JSON file: import json; with open("data.json", encoding="utf-8") as f: data = json.load(f).
+
+Save JSON: with open("out.json", "w", encoding="utf-8") as f: json.dump(data, f, indent=2).
+
+SQLite query with parameters: conn = sqlite3.connect("app.db"); rows = conn.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchall().
+
+Flask JSON route: @app.route("/api/hello", methods=["POST"]) def hello(): data = request.get_json(); return jsonify({"message": "Hello " + data["name"]}).
+
+Train and save an sklearn model: from sklearn.ensemble import RandomForestClassifier; model = RandomForestClassifier(n_estimators=200, random_state=42); model.fit(X_train, y_train); joblib.dump(model, "model.joblib").
+
+Load a model and predict: model = joblib.load("model.joblib"); pred = model.predict([[52, 1, 140, 233]]).
+
+Simple class: class Student: def __init__(self, name): self.name = name; def greet(self): return f"Hi {self.name}".
+
+Error handling: try: risky() except ValueError as e: print("Bad value", e) finally: cleanup().
+
+Virtual environment fix: if pip installs to the wrong Python, run python -m pip install package inside the activated environment.

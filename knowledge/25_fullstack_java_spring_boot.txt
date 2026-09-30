@@ -1,0 +1,15 @@
+# Full-Stack Blueprint: Java Spring Boot + MySQL + HTML/React
+
+Use Spring Boot when the college or company expects Java. It is strongly typed, structured and common in enterprise jobs.
+
+Setup: create the project on start.spring.io with Spring Web, Spring Data JPA, MySQL Driver, Spring Security and Lombok.
+
+Layers and folders: controller (HTTP endpoints), service (business logic), repository (database access), model or entity (tables), dto (data sent to the client), config (security).
+
+Entity example: @Entity public class Student { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id; private String name; private String email; } Repository: public interface StudentRepository extends JpaRepository<Student, Long> {}
+
+Controller example: @RestController @RequestMapping("/api/students") public class StudentController { @Autowired StudentService service; @GetMapping public List<Student> all() { return service.findAll(); } @PostMapping public Student create(@RequestBody Student s) { return service.save(s); } }
+
+application.properties: spring.datasource.url=jdbc:mysql://localhost:3306/mydb, spring.datasource.username, spring.datasource.password, spring.jpa.hibernate.ddl-auto=update.
+
+Build order: 1) database and entities, 2) repositories, 3) services, 4) controllers, 5) Spring Security with JWT or sessions, 6) test with Postman, 7) build the frontend (Thymeleaf pages or React), 8) package with mvn package and run the jar.

@@ -1,0 +1,11 @@
+# Roadmap and Timeline Templates
+
+8-week plan: Week 1 idea, problem statement and requirements. Week 2 architecture, database design, UI wireframes. Week 3 backend core (routes, auth, database). Week 4 main feature (AI, ML model or business logic). Week 5 frontend and integration. Week 6 testing and bug fixing. Week 7 report and PPT. Week 8 final demo practice and buffer.
+
+4-week crash plan: Week 1 design and setup, Week 2 working backend, Week 3 UI plus integration, Week 4 testing plus documentation.
+
+Team split for 3 members: one on backend and database, one on AI or ML, one on frontend and documentation. Meet twice a week and keep tasks in a simple checklist.
+
+Milestone habit: every Friday something must be demonstrable, even if small. Commit to Git after each working feature.
+
+Risk list: model download failing, dataset quality, time lost on styling, and demo-day internet problems. Keep an offline backup.

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Sign up · Technical Planning Assistant{% endblock %}
+{% block body %}
+<canvas id="fx"></canvas><div class="aurora"><i></i><i></i><i></i></div>
+<div class="page auth">
+  <div class="card">
+    <a class="brand" href="{{ url_for('landing') }}" style="color:inherit"><div class="orb"></div>Technical Planning Assistant</a>
+    <h2>Create your account</h2><p class="sub">Sign up once. You will land straight in the chat.</p>
+    {% with msgs = get_flashed_messages(with_categories=true) %}{% for cat, m in msgs %}<div class="flash {{ cat }}">{{ m }}</div>{% endfor %}{% endwith %}
+    <form method="post">
+      <label>Full name</label><input type="text" name="name" value="{{ name }}" placeholder="Sakshi Dhaker" required autofocus>
+      <label>Email</label><input type="email" name="email" value="{{ email }}" placeholder="you@college.edu" required>
+      <label>Password (min 6 characters)</label><input type="password" name="password" minlength="6" required>
+      <button class="btn primary" type="submit">Sign up</button>
+    </form>
+    <div class="switch">Already registered? <a href="{{ url_for('auth.login') }}">Log in</a></div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='fx.js') }}"></script>{% endblock %}

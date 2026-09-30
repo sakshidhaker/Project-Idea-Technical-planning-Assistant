@@ -1,0 +1,19 @@
+# Full-Stack Blueprint: Django (Python) + SQLite/PostgreSQL
+
+Use Django when you want a complete framework with authentication, admin panel and ORM built in. Best for CRUD-heavy projects such as management systems and portals.
+
+Setup: python -m venv venv, pip install django, django-admin startproject config ., python manage.py startapp core.
+
+Folder structure: config/ (settings.py, urls.py), core/ (models.py, views.py, urls.py, forms.py, templates/core/), manage.py.
+
+Models example: class Student(models.Model): name = models.CharField(max_length=100); email = models.EmailField(unique=True); created = models.DateTimeField(auto_now_add=True). Run python manage.py makemigrations then python manage.py migrate.
+
+Views and URLs: write a function or class view that fetches data with Student.objects.all() and renders a template; connect it with path("students/", views.student_list) in core/urls.py and include it in config/urls.py.
+
+Auth: use django.contrib.auth. Add login, logout and signup views with UserCreationForm. Protect pages with the login_required decorator.
+
+Admin: register models in admin.py and create a superuser with python manage.py createsuperuser; you get a free admin dashboard at /admin.
+
+REST API: install djangorestframework and write serializers and viewsets to expose JSON for a React or mobile frontend.
+
+Deploy: gunicorn on Render or Railway, PostgreSQL for production, collectstatic for CSS and JS.

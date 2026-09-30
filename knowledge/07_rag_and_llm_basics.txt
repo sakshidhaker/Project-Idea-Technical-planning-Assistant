@@ -1,0 +1,15 @@
+# RAG and Local LLM Basics
+
+RAG means Retrieval-Augmented Generation. Instead of hoping the model remembers facts, you search your own documents first and give the best passages to the model together with the question.
+
+Pipeline: load documents, split into chunks (500-800 characters), convert chunks to embeddings (vectors), store them, embed the user question, find the most similar chunks with cosine similarity, put them into the prompt, let the LLM answer.
+
+Why RAG helps small models: a 0.5B model has little memory of facts, so good context matters more than model size. Clear, focused knowledge files give better answers than long messy ones.
+
+Tips for better answers: write knowledge files as short titled sections, use simple sentences, include examples, avoid duplicates, and add new files for every topic students ask about.
+
+Prompt design: give the model a role, rules, the context, and the question. Ask for structure (headings, bullets). Low temperature (0.2-0.5) gives stable answers.
+
+GGUF and llama.cpp: GGUF is a quantised model format. Q4_K_M keeps quality while cutting size, so Qwen2.5 0.5B needs only about 500 MB. llama-cpp-python loads it and runs on CPU.
+
+Limitations to mention in viva: small models can hallucinate, they are weak at long reasoning, and answers depend on retrieval quality.

@@ -1,0 +1,13 @@
+# Flask Backend Guide
+
+Minimal Flask app: create Flask(__name__), define routes with @app.route, return render_template for pages or jsonify for APIs, run with app.run().
+
+Structure that scales: main.py creates the app, blueprints split routes (auth_api, chat_api), config.py holds settings, database.py holds SQL, and templates plus static folders hold the frontend.
+
+Sessions: after login store only the user id in flask session; set app.secret_key; clear the session on logout. Protect pages with a login_required decorator that redirects to /login (or returns 401 for /api routes).
+
+JSON API pattern: the browser sends fetch POST with JSON, the route reads request.get_json(), validates input, returns jsonify({...}) with a proper status code (400 bad input, 401 not logged in, 404 not found).
+
+Password safety: never store plain passwords. Use werkzeug.security generate_password_hash and check_password_hash.
+
+Common errors: forgetting secret_key, template not found (wrong template_folder), circular imports (move shared code to a third module), and running the app from the wrong folder.

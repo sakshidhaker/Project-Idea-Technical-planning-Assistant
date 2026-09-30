@@ -1,0 +1,13 @@
+# Testing and Debugging
+
+Test levels: unit tests for single functions, integration tests for a full route (signup, login, chat), and manual test cases for the UI.
+
+With pytest and Flask: create app.test_client(), post to /signup, then to /api/chat, and assert on status codes and JSON.
+
+Manual test table: test id, feature, input, expected output, actual output, pass or fail. Include wrong password, empty message, duplicate email and logout.
+
+Debugging routine: read the last line of the traceback first, print or log the variables, reproduce with the smallest input, search the exact error message, and fix one thing at a time.
+
+Common errors: ModuleNotFoundError means the package is missing in the active virtual environment; sqlite3.OperationalError no such table means init_db did not run; 404 for a template means wrong folder; 401 in the browser means the session expired.
+
+For ML projects also check data leakage, class imbalance and a random seed for reproducibility.

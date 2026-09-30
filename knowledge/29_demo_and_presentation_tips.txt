@@ -1,0 +1,9 @@
+# Workshop Demo and Presentation Tips
+
+Before the demo: start the server 10 minutes early, open the app, wait for the green model dot, ask one warm-up question so the first answer is fast, keep a backup screen recording, keep mobile hotspot ready, and have an account already logged in plus a fresh signup to show.
+
+Demo script of 5 minutes: 1) show the landing page and animation, 2) sign up a new user and land in the chat, 3) ask a project idea question, 4) ask a Hinglish question, 5) use the microphone, 6) show chat history and search, 7) create a PDF artifact, 8) open the admin page and show SQLite data, 9) explain the pipeline: prompt, RAG, local Qwen, validation, answer.
+
+If something fails: the app still answers from the knowledge base when the model is not loaded; if voice fails, type the question; if the network is down, everything except voice input works offline.
+
+Questions the audience may ask: why a small local model, how RAG works, how the data is stored, how passwords are protected, how the knowledge base can be extended, and what the limits of a 0.5B model are.

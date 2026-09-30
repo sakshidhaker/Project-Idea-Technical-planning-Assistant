@@ -1,0 +1,13 @@
+# Heart Disease Prediction (ML Project)
+
+Heart Disease Prediction is a machine learning project built by the developer for her resume. It predicts whether a patient is likely to have heart disease from clinical features.
+
+Model and results: a Neural Network was trained and reached about 86.5% accuracy. SHAP was used for explainability, so the app can show which features (for example age, chest pain type, blood pressure, cholesterol, maximum heart rate) pushed the prediction up or down.
+
+User interface: the model is served through a Streamlit app where a user enters patient values and sees the prediction together with the SHAP explanation. The code is on GitHub.
+
+Why explainability matters: in medical problems a bare yes or no is not enough. Doctors want to know why. SHAP gives per-feature contributions, which builds trust and helps find wrong behaviour.
+
+Viva points: why a Neural Network was chosen and how it was compared with simpler models; what accuracy hides (recall and ROC-AUC matter more for medical screening); what SHAP values mean; how data was split and scaled to avoid leakage; limitations (dataset size and source, not a medical device); future work (more data, calibration, deployment).
+
+How to extend it: add a Flask or FastAPI backend, store predictions in SQLite, add user login, and add a report download.

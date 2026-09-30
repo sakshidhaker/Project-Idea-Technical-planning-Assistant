@@ -1,0 +1,13 @@
+# System Architecture and Diagrams
+
+Architecture answers: which parts exist, what each part does, and how data moves between them.
+
+Typical 3-layer web architecture: Presentation layer (HTML, CSS, JavaScript) talks to the Application layer (Flask routes, business logic, AI or ML code) which talks to the Data layer (SQLite database, files, vector index).
+
+Local RAG chatbot flow: User question, Flask route, retrieval from knowledge files, prompt building, local LLM, validation, answer shown in UI, chat saved in database.
+
+Diagrams evaluators like: block diagram (overall system), data flow diagram level 0 and 1, use case diagram (actors and actions), ER diagram (tables and relations), sequence diagram (step-by-step request flow), and flowchart (algorithm).
+
+Tools for diagrams: draw.io (diagrams.net), Lucidchart, Mermaid in Markdown, PlantUML, Excalidraw.
+
+Good practice: one responsibility per file, keep AI logic out of the frontend, keep SQL in one database module, and keep configuration in one config file.

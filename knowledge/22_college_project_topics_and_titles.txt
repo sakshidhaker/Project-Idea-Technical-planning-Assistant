@@ -1,0 +1,25 @@
+# Common College Project Topics and Titles
+
+Final-year B.Tech project titles that are easy to explain and demo:
+1. Local RAG-based Technical Planning Assistant for students
+2. Heart or diabetes disease prediction with explainable AI (SHAP)
+3. Fake news or spam message detection with NLP
+4. Phishing website detection using machine learning
+5. Student performance and placement prediction
+6. Attendance system using face recognition
+7. Online examination and proctoring portal
+8. Library, hospital or hostel management system
+9. E-commerce website with recommendation engine
+10. Expense tracker with charts and budget alerts
+11. Plant disease detection from leaf images (CNN)
+12. Smart traffic or parking system using IoT
+13. Chatbot for college admission FAQs
+14. Resume analyser and job matcher
+15. Network intrusion detection system
+16. Blockchain based certificate verification
+
+How to choose: pick a topic with a public dataset or a clear data source, a visible output for the demo, and one technology you want on your resume. Add login, database and a dashboard to make it look like a real product.
+
+Group project roles: backend and database, ML or AI module, frontend and UI, testing and documentation.
+
+Abstract template: Problem, why existing systems fail, proposed approach, technologies used, expected outcome.

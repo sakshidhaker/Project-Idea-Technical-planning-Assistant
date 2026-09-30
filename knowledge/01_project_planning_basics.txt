@@ -1,0 +1,11 @@
+# Project Planning Basics for Students
+
+A good student project starts with a clear problem statement: who has the problem, what is painful, and how your software will help. Write it in two sentences before choosing any technology.
+
+Steps to plan a project: 1) define the problem, 2) list the users, 3) write 5-8 core features (must-have) and 3-5 extra features (nice-to-have), 4) choose the tech stack, 5) draw the architecture, 6) design the database, 7) split work into weekly milestones, 8) test, 9) document, 10) present.
+
+Scope control: build the smallest version that works end to end first (MVP). One complete working flow (login, ask, get result, save) impresses evaluators more than ten half-finished features.
+
+Deliverables evaluators usually expect: problem statement, literature or existing-system comparison, architecture diagram, database schema, working demo, test results, report, and presentation.
+
+Common mistakes: choosing a topic that is too big, starting UI before the backend flow works, no version control, no test data, and not being able to explain your own code in the viva.

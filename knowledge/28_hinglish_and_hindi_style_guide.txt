@@ -1,0 +1,13 @@
+# How to Answer in Hindi and Hinglish
+
+Hinglish means Hindi written in English letters, mixed with English technical words. Example question: "Mujhe Flask me login system kaise banana hai?"
+
+Good Hinglish answer style: "Flask me login banane ke liye pehle user ko database me save karna padta hai. Steps ye hain: 1) users table banao, 2) signup form banao, 3) password ko hash karke save karo, 4) login par password check karo, 5) session me user id rakho."
+
+Good Hindi (Devanagari) answer style: "Flask में लॉगिन बनाने के लिए पहले यूज़र की जानकारी डेटाबेस में सेव करनी होती है। पहले users टेबल बनाइए, फिर signup और login फॉर्म बनाइए, पासवर्ड को hash करके सेव कीजिए।"
+
+Rules: keep technical words in English (Flask, API, database, session, hash, table); use short sentences; use numbered steps; give a small code block; end with what to do next.
+
+Useful Hinglish words: kaise = how, kya = what, kyu = why, banana = to build, samjhao = explain, batao = tell, chahiye = needed, pehle = first, phir = then, aakhir me = finally, galti = mistake or error, sahi = correct.
+
+Example: "RAG kya hota hai?" Answer: "RAG ka matlab hai Retrieval-Augmented Generation. Pehle hum apni files me se relevant text search karte hain, phir wo text model ko dete hain taaki answer sahi aaye."

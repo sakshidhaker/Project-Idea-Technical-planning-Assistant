@@ -1,0 +1,15 @@
+# Deep Learning Project Guide
+
+Use deep learning when data is images, audio, text or long sequences and you have enough samples. For small tabular data, classical ML is usually better.
+
+Architectures: ANN/MLP for tabular data, CNN for images, RNN/LSTM/GRU for sequences, Transformers for text and modern NLP.
+
+Workflow: prepare data, normalise inputs, split train/validation/test, build the model (Keras Sequential or PyTorch nn.Module), choose loss and optimiser (Adam), train with early stopping, plot loss and accuracy curves, evaluate on the test set.
+
+Overfitting fixes: more data, data augmentation, dropout, weight decay, smaller model, early stopping.
+
+Transfer learning: reuse pretrained models such as ResNet, MobileNet or BERT and fine-tune only the last layers. It gives strong results with little data and less training time.
+
+CPU friendly tips: use small images (128x128), MobileNet, fewer epochs, and Google Colab for free GPU.
+
+Explain in viva: what a loss function is, how backpropagation updates weights, why activation functions are needed, and the difference between epoch, batch and iteration.

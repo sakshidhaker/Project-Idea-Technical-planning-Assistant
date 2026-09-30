@@ -1,0 +1,15 @@
+# Full-Stack Blueprint: React + Node.js (Express) + MongoDB (MERN)
+
+Use MERN when you want one language (JavaScript) everywhere, a modern single-page UI and JSON APIs. Good for portals, dashboards, social and e-commerce apps.
+
+Folder structure: project/ has client/ (React app: src/components, src/pages, src/api.js) and server/ (index.js, routes/, models/, middleware/, .env).
+
+Database (MongoDB with Mongoose): User {name, email, passwordHash}, Item or Post {title, description, owner (User id), createdAt}. Collections are created automatically when first used.
+
+API endpoints: POST /api/auth/register, POST /api/auth/login (returns JWT), GET /api/items, POST /api/items, PUT /api/items/:id, DELETE /api/items/:id. Protect routes with a JWT middleware that reads the Authorization header.
+
+Build order: 1) npm init and install express mongoose cors dotenv bcrypt jsonwebtoken, 2) connect to MongoDB, 3) User model and register/login routes, 4) auth middleware, 5) CRUD routes, 6) create the React app with Vite (npm create vite@latest), 7) pages for login, list and form using fetch or axios, 8) store the token in localStorage and send it in headers, 9) test with Postman, 10) deploy server on Render and client on Netlify or Vercel.
+
+Express example: const app = express(); app.use(cors()); app.use(express.json()); app.post("/api/auth/login", async (req, res) => { const user = await User.findOne({ email: req.body.email }); if (!user || !(await bcrypt.compare(req.body.password, user.passwordHash))) return res.status(401).json({ error: "Wrong email or password" }); res.json({ token: jwt.sign({ id: user._id }, process.env.JWT_SECRET) }); });
+
+React example: const [items, setItems] = useState([]); useEffect(() => { fetch("/api/items").then(r => r.json()).then(setItems); }, []);

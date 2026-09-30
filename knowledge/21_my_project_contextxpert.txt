@@ -1,0 +1,19 @@
+# ContextXPerT (Internship Research Project)
+
+ContextXPerT was done as an internship project at the FICS Lab (Future Intelligence and Computer Security Lab), MNIT Jaipur. It extends the XPerT paper (Wang et al., MobiSys 2025, "Never Start from Scratch").
+
+Core idea: instead of caching a full personalised LLM for every user or style, ContextXPerT uses lightweight LoRA adapters and routes each prompt to the right adapter on the device. This saves memory and time on edge devices.
+
+Base model: TinyLlama-1.1B-Chat-v1.0, chosen over the gated Llama-3.2-1B because it is open, accessible and consistent. Experiments ran on Google Colab and Kaggle.
+
+Four phases: 1) baseline reproduction, 2) novel extension with LoRA adapter routing, 3) experimental evaluation, 4) paper, poster and presentation.
+
+Technical contributions: explainable sub-vector extraction (adapter hidden state minus base hidden state); Min-Max contrast scaling to fix Router Collapse; dynamic LoRA blending using PEFT add_weighted_adapter with linear combination; continual evolution with two signals (gradient reinforcement on accept, gradient reversal on reject).
+
+Measured results (5,000 samples per style): 14.2 times lower latency, 49.9 percent lower memory, 93.1 percent lower energy, and +14.1 percent ROUGE-L.
+
+Honest limitation reported openly: router accuracy was 33.3 percent, which is chance level, and style sub-vectors had high pairwise cosine similarity (0.87 to 0.89), so they are not orthogonal. Reporting negative results honestly is good research practice.
+
+Deliverables: IEEE-format paper, a 10-panel academic poster, and a college industrial training presentation.
+
+Viva questions: What is LoRA and why is it cheaper than full fine-tuning? What is router collapse and how did Min-Max scaling help? Why is 33.3 percent router accuracy a limitation? Why TinyLlama? What would you improve next?

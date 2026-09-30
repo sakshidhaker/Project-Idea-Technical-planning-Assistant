@@ -1,0 +1,15 @@
+# Full-Stack Blueprints: PHP Laravel, ASP.NET, Go, Flutter, Next.js
+
+PHP with Laravel: good for websites on cheap hosting. Install with composer create-project laravel/laravel app. Use php artisan make:model Post -m for a model with migration, php artisan migrate, routes in routes/web.php, controllers in app/Http/Controllers, Blade templates in resources/views. Laravel Breeze gives login and registration in one command.
+
+C# ASP.NET Core: strongly typed and popular in enterprise. dotnet new webapi creates the project; use Entity Framework Core for the database (dotnet ef migrations add Init, dotnet ef database update), controllers with [ApiController] and [Route("api/[controller]")], and JWT bearer authentication.
+
+Go (Golang): fast and simple for APIs. Use net/http or the Gin framework, database/sql or GORM, and structs for models. Best when you want a small, quick backend service.
+
+Flutter (Dart) mobile apps: build one app for Android and iOS. Use widgets for the UI, http package or Dio for API calls, Provider or Riverpod for state, and Firebase or your own REST backend for data and auth.
+
+Next.js (React): server-side rendering plus API routes in one project. Use it when SEO or a single deployable app matters. Deploy on Vercel.
+
+Node with SQL: Express plus Sequelize or Prisma with PostgreSQL or MySQL is the SQL alternative to MongoDB.
+
+How to choose: know Python then Flask or Django; know JavaScript then MERN or Next.js; college teaches Java then Spring Boot; want mobile then Flutter or React Native.

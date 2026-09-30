@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+<canvas id="fx"></canvas><div class="aurora"><i></i><i></i><i></i></div>
+<div class="page">
+  <div class="nav">
+    <div class="brand"><div class="orb"></div>Technical Planning Assistant</div>
+    <div style="display:flex;gap:10px"><button class="btn small" onclick="toggleTheme()">◐ Theme</button>
+      {% if logged_in %}<a class="btn small primary" href="{{ url_for('app_page') }}">Open chat →</a>
+      {% else %}<a class="btn small" href="{{ url_for('auth.login') }}">Log in</a>
+      <a class="btn small primary" href="{{ url_for('auth.signup') }}">Sign up</a>{% endif %}</div>
+  </div>
+  <section class="hero">
+    <span class="chip"><b>●</b> Local-first · {{ model }} · runs on your laptop</span>
+    <h1>Plan your project with an <span class="grad-text">AI that lives on your machine.</span></h1>
+    <p>Ask in English, Hindi or Hinglish. Type or speak. Project ideas, tech stack, architecture, roadmap, viva or any full-stack topic. Your local Qwen model answers using a knowledge base, and every chat is saved to your history.</p>
+    {% if logged_in %}<a class="btn primary" href="{{ url_for('app_page') }}" style="padding:14px 28px;font-size:16px">Continue to chat →</a>
+    {% else %}<a class="btn primary" href="{{ url_for('auth.signup') }}" style="padding:14px 28px;font-size:16px">Get started free →</a>
+    <a class="btn" href="{{ url_for('auth.login') }}" style="padding:14px 28px;font-size:16px">I have an account</a>{% endif %}
+    <div class="pipe"><span style="animation-delay:.1s">Your prompt</span><span style="animation-delay:.25s">Semantic RAG</span><span style="animation-delay:.4s">Local Qwen</span><span style="animation-delay:.55s">Validation</span><span style="animation-delay:.7s">Answer / file</span></div>
+  </section>
+  <section class="features">
+    <div class="card" style="animation-delay:.2s"><div class="ico">💡</div><h3>Project mentor</h3><p>Ideas, stacks, roadmaps and report outlines for your final-year project.</p></div>
+    <div class="card" style="animation-delay:.35s"><div class="ico">🕘</div><h3>Chat history</h3><p>Every conversation is saved per user in SQLite. Search and reopen anytime.</p></div>
+    <div class="card" style="animation-delay:.5s"><div class="ico">📄</div><h3>Create artifacts</h3><p>Turn answers into a real PDF or DOCX document you can download.</p></div>
+    <div class="card" style="animation-delay:.65s"><div class="ico">🔒</div><h3>Private by design</h3><p>No cloud API. Passwords are hashed and the model runs offline.</p></div>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='fx.js') }}"></script>{% endblock %}

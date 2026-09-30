@@ -1,0 +1,13 @@
+# Frontend and UI Guidelines
+
+A good project UI is clean, consistent and shows state clearly (loading, success, error).
+
+Layout for chat apps: sidebar with chat history and new chat button, main area with messages, input box fixed at the bottom, header with user menu and logout.
+
+Design basics: pick one accent colour, use a readable font size (15-16 px), keep spacing consistent, use cards with rounded corners, support dark and light theme, and make it responsive with CSS flexbox and grid.
+
+Nice touches: typing indicator while the AI thinks, smooth fade-in for messages, suggestion chips for common questions, copy button on answers, keyboard shortcut (Enter to send, Shift+Enter for new line), and an intro animation.
+
+Forms: validate on the server as well as in the browser, show clear error messages, and never reveal whether the email or the password was wrong separately.
+
+Accessibility: good colour contrast, labels for inputs, focus outlines, and respect prefers-reduced-motion for animations.

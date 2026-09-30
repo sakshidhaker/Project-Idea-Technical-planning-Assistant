@@ -1,0 +1,15 @@
+# Recipe to Plan Any Full-Stack Project in Any Language
+
+Step 1 Understand: write the problem, the users and 5 main features.
+Step 2 Pick the stack: frontend, backend, database, auth. Prefer the language you already know.
+Step 3 Draw the flow: user action, frontend, API request, backend logic, database, response, screen update.
+Step 4 Design the database: list entities, give each a primary key, connect them with foreign keys.
+Step 5 List API endpoints: nouns for URLs, GET to read, POST to create, PUT or PATCH to update, DELETE to remove.
+Step 6 Folder structure: keep frontend and backend separate; inside backend split routes, models, services and config.
+Step 7 Build in this order: database, auth (signup and login), main feature, UI, error handling, tests.
+Step 8 Test with Postman and manual test cases, then fix bugs.
+Step 9 Deploy: frontend on Netlify or Vercel, backend on Render or Railway, database on a managed service.
+Step 10 Document: README, screenshots, architecture diagram, report and presentation.
+
+Example, online food ordering: entities User, Restaurant, MenuItem, Order, OrderItem; endpoints /api/menu, /api/orders; features browse menu, cart, place order, order history, admin panel.
+Example, student attendance: entities Student, Class, Attendance; endpoints /api/attendance/mark, /api/attendance/report; features login, mark attendance, monthly report, low-attendance alert.

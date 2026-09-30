@@ -1,0 +1,8 @@
+myenv/
+.venv/
+__pycache__/
+*.pyc
+data/*.db
+generated/*
+models/*.gguf
+.env

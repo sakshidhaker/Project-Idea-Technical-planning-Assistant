@@ -1,0 +1,15 @@
+# SQLite and Database Design
+
+SQLite stores the whole database in one file and ships with Python (import sqlite3). It is ideal for demos.
+
+Design steps: list the entities, give each table a primary key, connect tables with foreign keys, avoid storing the same data twice.
+
+Chat app schema: users(id, name, email, password_hash, created_at); chats(id, user_id, title, created_at, updated_at); messages(id, chat_id, role, content, sources, created_at). One user has many chats, one chat has many messages.
+
+Core SQL: CREATE TABLE, INSERT, SELECT with WHERE and ORDER BY, UPDATE, DELETE, JOIN to combine tables, LIKE for search, COUNT for statistics.
+
+Safety: always use parameters (? placeholders) instead of string formatting to prevent SQL injection. Turn on PRAGMA foreign_keys = ON so ON DELETE CASCADE works.
+
+Viewing data: use DB Browser for SQLite, the VS Code extension SQLite Viewer, or an admin page in your own app.
+
+Normalisation in one line: each fact should live in exactly one place.

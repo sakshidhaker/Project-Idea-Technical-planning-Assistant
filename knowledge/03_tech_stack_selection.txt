@@ -1,0 +1,17 @@
+# Choosing a Tech Stack
+
+Choose tools you can explain. Fewer tools used well beat many tools used badly.
+
+Python backend: Flask is small and perfect for learning and demos; FastAPI is better when you need automatic API docs and async; Django gives admin, ORM and auth out of the box for large CRUD apps.
+
+Database: SQLite for demos and single-machine apps (zero setup, one file). MySQL or PostgreSQL when many users write at once. MongoDB when data is document-shaped and changes often.
+
+Frontend: plain HTML, CSS and JavaScript is enough for most college projects. React is useful if the UI is very interactive. Streamlit is the quickest way to demo an ML model.
+
+ML and data: pandas and numpy for data, scikit-learn for classical ML, TensorFlow/Keras or PyTorch for deep learning, matplotlib or plotly for charts.
+
+LLM and RAG: llama-cpp-python runs GGUF models locally on CPU, sentence-transformers creates embeddings, FAISS or plain numpy does similarity search, Hugging Face hosts models.
+
+Deployment: Render, Railway or PythonAnywhere for Flask; Hugging Face Spaces for ML demos; Docker when you need the same setup everywhere.
+
+Rule of thumb: pick the stack from the requirement, not from what is trending.

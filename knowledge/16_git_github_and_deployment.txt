@@ -1,0 +1,13 @@
+# Git, GitHub and Deployment
+
+Git basics: git init, git add ., git commit -m "message", git branch, git push. Commit small and often with clear messages.
+
+GitHub README should contain: project title, screenshot, features, tech stack, setup steps, how to run, folder structure, and future work. A good README is part of your resume.
+
+.gitignore: exclude virtual environments (myenv, .venv), __pycache__, .env, database files and large model files.
+
+Virtual environment: python -m venv .venv, activate it, pip install -r requirements.txt, and pip freeze to record versions.
+
+Deployment: Flask apps run on Render, Railway or PythonAnywhere using gunicorn. Large local models need a machine with enough RAM, so for public demos prefer a small model or a hosted API. Set secrets as environment variables, never in code.
+
+Docker in one line: a Dockerfile describes the environment so the project runs the same on any computer.
